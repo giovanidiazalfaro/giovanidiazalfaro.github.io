@@ -110,6 +110,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
+  bigdecimal
   bundler
   jekyll
   jekyll-paginate

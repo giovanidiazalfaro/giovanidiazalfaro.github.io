@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
-gem "ruby-lsp"
-gem "rubocop"
-gem "bundler"
-gem "jekyll"
-gem "jekyll-paginate"
-gem "jekyll-sitemap"
+gem 'bigdecimal'
+gem 'bundler'
+gem 'jekyll'
+gem 'jekyll-paginate'
+gem 'jekyll-sitemap'
+gem 'rubocop'
+gem 'ruby-lsp'
