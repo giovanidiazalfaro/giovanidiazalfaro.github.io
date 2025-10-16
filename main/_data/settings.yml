@@ -1,8 +1,8 @@
 #-------------------------------
 # Site Settings
-title: Atega
+title: Giovani Diaz Alfaro
 logo: # You can add own logo. For example '/images/logo.png'.
-description: Creative personal blog theme for Jekyll
+description: My website
 color_scheme: auto # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
 
 
@@ -27,7 +27,7 @@ menu__settings:
 #-------------------------------
 # Author Settings
 author:
-  author__name: Victoria Nayda
+  author__name: Giovani Diaz Alfaro
   author__avatar: "/images/01-1.jpg"
   author__bio: I'm a product designer who's passionate about bringing projects to life! I love learning new things and jumping headfirst into solving problems.
 
@@ -73,7 +73,7 @@ links__item:
 #-------------------------------
 # Hero Settings
 hero:
-  hero__title: Hi, I'm <span>Victoria Nayda</span>. # Wrap text in a <span></span> tag to highlight and underline text.
+  hero__title: Hi, I'm <span>Giovani Diaz Alfaro</span>. # Wrap text in a <span></span> tag to highlight and underline text.
   hero__job: Designer, Illustrator
   hero__description: I spend a lot of time creating cool things
   hero__button__text: Read about my past
