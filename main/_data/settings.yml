@@ -17,6 +17,7 @@ menu__settings:
     - title: "Teaching"
       url: "/elements/"
     - title: "Pages"
+    
       submenu:
       - url: "/if-you-cannot-do-great-things-do-small-things-in-a-great-way/"
         title: "Lifestyle"
