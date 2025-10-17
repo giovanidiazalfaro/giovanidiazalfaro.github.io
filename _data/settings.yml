@@ -3,7 +3,7 @@
 title: Giovani Diaz Alfaro
 logo: # You can add own logo. For example '/images/logo.png'.
 description: My website
-color_scheme: dark # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
+color_scheme: auto # You can choose three modes auto, light, and dark. By default, the auto mode is set, which means the user can choose the light or dark mode themself.
 
 
 #-------------------------------
@@ -29,7 +29,7 @@ menu__settings:
 # Author Settings
 author:
   author__name: Giovani Diaz Alfaro
-  author__avatar: "/images/01-1.jpg"
+  author__avatar: "/images/gda_profilepic_test1.png"
   author__bio: I'm a cognitive scientist who's passionate about bringing projects to life! I love learning new things and jumping headfirst into solving problems.
 
 
@@ -46,46 +46,29 @@ links__item:
     image_alt: Inspirational books
     link: "https://twitter.com"
 
-  - title: Creating stylised images from a photo
-    description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
-    image_url: "/images/111.jpg"
-    image_alt: Illustrator
-    link: "https://google.com"
 
-  - title: Chill Movies for Couples to Watch on Date Night
-    description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
-    image_url: "/images/112.jpg"
-    image_alt: Movies
-    link: "https://www.netflix.com"
-
-  - title: The 8 Best Exercises for Weight Loss
-    description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
-    image_url: "/images/114.jpg"
-    image_alt: Best exercises
-    link: "https://google.com"
-
-  - title: Ask Me A Question On Instagram
-    description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
-    image_url: "/images/115.jpg"
-    image_alt: Ask Me A Question
-    link: "https://instagram.com"
+  #- title: Ask Me A Question On Instagram
+  #  description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
+  #  image_url: "/images/115.jpg"
+  #  image_alt: Ask Me A Question
+  #  link: "https://instagram.com"
 
 
 #-------------------------------
 # Hero Settings
 hero:
   hero__title: Hi, I'm <span>Giovani Diaz Alfaro</span>. # Wrap text in a <span></span> tag to highlight and underline text.
-  hero__job: Designer, Illustrator
+  hero__job: Cognitive Scientist
   hero__description: I spend a lot of time creating cool things
-  hero__button__text: Read about my past
+  hero__button__text: Get to know me!
   hero__button__link: "/about/"
-  hero__image: "/images/01.jpg"
+  hero__image: "/images/gda_profilepic_test1.png"
 
 
 #-------------------------------
 # Gallery Footer Section
 gallery:
-  enable: true
+  enable: false # set to true if this section is updated
   gallery__title: Gallery
   gallery__columns: "3" # You can change the number of gallery columns
   gallery__images:
@@ -106,7 +89,7 @@ gallery:
 #-------------------------------
 # Newsletter
 mailchimp:
-  enable: true
+  enable: false # set to true if this section is updated
   mailchimp__title: Subscribe to new posts # Add your Title
   mailchimp__text: Subscribe to our newsletter and we’ll send you the emails of latest posts. # Add your description.
   mailchimp__identifier: "gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp" # Add your MailChimp form identifier. For example - gmail.us21.list-manage.com/subscribe/post?u=8aeb9c31a5c97a3a5f9ff2740&amp;id=0e31fd7793&amp
@@ -116,12 +99,9 @@ mailchimp:
 #-------------------------------
 # Social Icons Settings
 social:
-- {icon: "fa-brands fa-x-twitter", name: "Twitter", link: "https://twitter.com"}
-- {icon: "fa-brands fa-github", name: "Github", link: "https://github.com"}
-- {icon: "fa-brands fa-youtube", name: "Youtube", link: "https://youtube.com"}
-- {icon: "fa-brands fa-pinterest", name: "Pinterest", link: "https://pinterest.com"}
-- {icon: "fa-brands fa-discord", name: "Discord", link: "https://discord.com"}
-- {icon: "fa-brands fa-vimeo-v", name: "Vimeo", link: "https://vimeo.com"}
+#- {icon: "fa-brands fa-x-twitter", name: "Twitter", link: "https://twitter.com"}
+- {icon: "fa-brands fa-github", name: "Github", link: "https://github.com/giovanidiazalfaro"}
+- {icon: "fa-brands fa-linkedin", name: "LinkedIn", link: "https://linkedin.com/in/giovani-diaz-alfaro"}
 
 # Example of adding a new link to the author section and footer: - {icon: "fa-brands fa-instagram", name: "Instagram", link: "https://instagram.com}
 # Other icons can be found at https://fontawesome.com/
@@ -144,4 +124,4 @@ disqus-identifier: anvod-studio-test # Add your shortname for Disqus Comment. Fo
 
 #-------------------------------
 # Google Analytics
-google-analytics: # Add your GA Tracking Id
+google-analytics: G-LB92MX0H09 # Add your GA Tracking Id
