@@ -14,7 +14,7 @@ menu__settings:
       url: "/about/"
     - title: "Research"
       url: "/contact/"
-    - title: "Elements"
+    - title: "Teaching"
       url: "/elements/"
     - title: "Pages"
       submenu:
