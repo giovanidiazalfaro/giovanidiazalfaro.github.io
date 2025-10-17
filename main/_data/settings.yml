@@ -12,7 +12,7 @@ menu__settings:
   menu__items:
     - title: "About"
       url: "/about/"
-    - title: "Contact"
+    - title: "Research"
       url: "/contact/"
     - title: "Elements"
       url: "/elements/"
