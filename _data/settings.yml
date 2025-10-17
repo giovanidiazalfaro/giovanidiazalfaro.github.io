@@ -12,17 +12,19 @@ menu__settings:
   menu__items:
     - title: "About"
       url: "/about/"
-    - title: "Research"
-      url: "/contact/"
-    - title: "Teaching"
-      url: "/elements/"
-    - title: "Pages"
+    - #title: "Research"
+      #url: "/contact/"
+    - title: "Experience"
+      url: "/Experience/"
+    - title: "Contact"
+      url: "/contact/"  
+    #- title: "Pages"
     
-      submenu:
-      - url: "/if-you-cannot-do-great-things-do-small-things-in-a-great-way/"
-        title: "Lifestyle"
-      - url: "/you-must-be-the-change-you-wish-to-see-in-the-world/"
-        title: "Workflow"
+     # submenu:
+     # - url: "/if-you-cannot-do-great-things-do-small-things-in-a-great-way/"
+     #   title: "Lifestyle"
+     # - url: "/you-must-be-the-change-you-wish-to-see-in-the-world/"
+     #   title: "Workflow"
 
 
 #-------------------------------
@@ -40,10 +42,10 @@ links:
   links__title: "Useful links"
 
 links__item:
-  - title: 10 Inspirational Books Every Creative Should Read
-    description: Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.
+  - title: My CV/Resume
+    description: A summary of
     image_url: "/images/110.jpg"
-    image_alt: Inspirational books
+    image_alt: First page
     link: "https://twitter.com"
 
 
