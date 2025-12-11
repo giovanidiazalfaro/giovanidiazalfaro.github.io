@@ -31,7 +31,7 @@ menu__settings:
 # Author Settings
 author:
   author__name: Giovani Diaz Alfaro
-  author__avatar: "/images/gda_profilepic_test1.png"
+  author__avatar: "/images/GDA_Headshot_Coat_Avatar.jpg"
   author__bio: I'm a cognitive scientist who's passionate about bringing projects to life! I love learning new things and jumping headfirst into solving problems.
 
 
@@ -64,7 +64,7 @@ hero:
   hero__description: I spend a lot of time creating cool things
   hero__button__text: Get to know me!
   hero__button__link: "/about/"
-  hero__image: "/images/gda_profilepic_test1.png"
+  hero__image: "/images/GDA_Headshot_Coat_Resized.jpg"
 
 
 #-------------------------------
