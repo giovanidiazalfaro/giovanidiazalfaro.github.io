@@ -237,10 +237,10 @@
 
     .hero__image {
       width: 100%;
-      aspect-ratio: 1/1;
+      aspect-ratio: auto;
       margin-bottom: 40px;
 
-      @supports not (aspect-ratio: 1/1) {
+      @supports not (aspect-ratio: auto) {
         padding-bottom: 100%;
       }
     }
