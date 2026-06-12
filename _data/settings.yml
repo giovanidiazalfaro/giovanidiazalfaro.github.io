@@ -61,7 +61,7 @@ links__item:
 hero:
   hero__title: Hi, I'm <span>Giovani Diaz Alfaro</span>. # Wrap text in a <span></span> tag to highlight and underline text.
   hero__job: Cognitive Scientist
-  hero__description: "My work focuses on interdisciplinary problem-solving.<br><span style='font-size: 0.75rem; color: #C0522A;'>⚠️ <strong>Site is currently undergoing a redesign — thank you for your patience!<strong> ⚠️</span>"
+  hero__description: "My work focuses on interdisciplinary problem-solving.<br><span style='font-size: 0.75rem; color: #C0522A;'>⚠️ <strong>Site is currently undergoing a redesign — thank you for your patience!</strong> ⚠️</span>"
   hero__button__text: Get to know me!
   hero__button__link: "/about/"
   hero__image: "/images/GDA_Headshot_Coat_Resized.jpg"

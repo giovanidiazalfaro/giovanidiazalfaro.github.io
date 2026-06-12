@@ -153,3 +153,11 @@ Spoiler Tagging
   background-color: transparent;
   color: inherit;
 }
+
+/* =========================
+Mobile Troubleshooting - Headshot Not Appearing
+======================= */
+
+.hero__right {
+  min-height: 200px;
+}
