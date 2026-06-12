@@ -12,12 +12,12 @@ menu__settings:
   menu__items:
     - title: "About"
       url: "/about/"
-    - #title: "Research"
-      #url: "/contact/"
     - title: "Experience"
       url: "/Experience/"
     - title: "Contact"
-      url: "/contact/"  
+      url: "/Contact/"
+    - #title: "Other"
+      #url: "/Other/"  
     #- title: "Pages"
     
      # submenu:
@@ -32,7 +32,7 @@ menu__settings:
 author:
   author__name: Giovani Diaz Alfaro
   author__avatar: "/images/GDA_Headshot_Coat_Avatar.jpg"
-  author__bio: I'm a cognitive scientist who's passionate about bringing projects to life! I love learning new things and jumping headfirst into solving problems.
+  author__bio: I'm a scientist who's passionate about bringing projects to life! I'm extremely interested in exploring how problems that span across various discplines manifest in the real world, and jumping headfirst into solving these issues.
 
 
 #-------------------------------
@@ -61,7 +61,7 @@ links__item:
 hero:
   hero__title: Hi, I'm <span>Giovani Diaz Alfaro</span>. # Wrap text in a <span></span> tag to highlight and underline text.
   hero__job: Cognitive Scientist
-  hero__description: I spend a lot of time creating cool things
+  hero__description: "My work focuses on interdisciplinary problem-solving.<br><span style='font-size: 0.75rem; color: #C0522A;'>⚠️ <strong>Site is currently undergoing a redesign — thank you for your patience!<strong> ⚠️</span>"
   hero__button__text: Get to know me!
   hero__button__link: "/about/"
   hero__image: "/images/GDA_Headshot_Coat_Resized.jpg"
