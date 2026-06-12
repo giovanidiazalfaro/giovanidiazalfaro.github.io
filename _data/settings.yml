@@ -43,10 +43,10 @@ links:
 
 links__item:
   - title: My CV/Resume
-    description: A summary of
-    image_url: "/images/110.jpg"
-    image_alt: First page
-    link: "https://twitter.com"
+    description: A summary of my experience and skills.
+    image_url: "/images/resume-preview.jpg"
+    image_alt: Resume preview
+    link: "/files/Resume_GDA_Updated_2026_SITE_LIVE.pdf"
 
 
   #- title: Ask Me A Question On Instagram

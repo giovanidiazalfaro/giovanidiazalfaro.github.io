@@ -121,3 +121,35 @@ who appreciate simplicity and functionality. You can start sharing your stories 
 {% include_relative _4-layouts/author.scss %}
 /* >>>>>>>>>>>>>> :: 4.2-Tag Page <<<<<<<<<<<<<<< */
 {% include_relative _4-layouts/tag-page.scss %}
+
+
+/* =========================
+Resume Preview Image Crop Work 
+======================= */
+
+.single-link__image {
+  background-color: #1a3a6b;
+}
+
+.single-link__image img {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+/* =========================
+Spoiler Tagging
+======================= */
+
+.spoiler {
+  background-color: black;
+  color: black;
+  cursor: pointer;
+  border-radius: 3px;
+  padding: 0 4px;
+  transition: all 0.3s ease;
+}
+
+.spoiler.revealed {
+  background-color: transparent;
+  color: inherit;
+}
