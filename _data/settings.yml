@@ -13,7 +13,11 @@ menu__settings:
     - title: "About"
       url: "/about/"
     - title: "Experience"
-      url: "/Experience/"
+      submenu:
+      - url: "/Active-Projects/"
+        title: "Active Projects"
+      - url: "/Past-Projects/"
+        title: "Past Projects"
     - title: "Contact"
       url: "/Contact/"
     - #title: "Other"

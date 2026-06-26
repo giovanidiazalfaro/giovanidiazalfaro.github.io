@@ -161,3 +161,14 @@ Mobile Troubleshooting - Headshot Not Appearing
 .hero__right {
   min-height: 200px;
 }
+
+
+/* =========================
+Format Troubleshooting - Dots in Gradient
+======================= */
+
+hr[style] {
+  &::before {
+    content: none !important;
+  }
+}
