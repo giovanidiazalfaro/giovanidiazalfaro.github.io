@@ -15,6 +15,11 @@ plugins:
 paginate: 6
 paginate_path: "/page/:num"
 
+collections:
+  stoic_cycle:
+    output: true
+
+
 # Pages Path
 defaults:
   - scope:

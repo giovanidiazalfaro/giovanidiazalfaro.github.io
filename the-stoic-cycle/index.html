@@ -1,0 +1,599 @@
+---
+layout: default
+title: "The Stoic Cycle — Archive"
+permalink: /the-stoic-cycle/
+---
+
+<style>
+  /* Reuses the site's own theme variables (defined in
+     _0-settings/color-scheme.scss) so it automatically matches light/dark
+     mode. Dark mode toggles via the :root[dark] attribute selector already
+     defined in that file. */
+  .stoic-archive {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+    background: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .stoic-archive .archive-header {
+    max-width: 720px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .stoic-archive .archive-header h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+  .stoic-archive .archive-header .tagline {
+    font-style: italic;
+    color: var(--text-alt-color);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .stoic-archive .archive-note {
+    background: var(--background-alt-color);
+    border-left: 3px solid var(--brand-color);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: left;
+  }
+
+  /* Three columns side by side on desktop */
+  .stoic-archive .eras-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .stoic-archive .era-range {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--brand-color);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .stoic-archive .era-block h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    line-height: 1.3;
+  }
+  .stoic-archive .era-desc {
+    font-size: 0.88rem;
+    color: var(--text-alt-color);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Era-level toggle buttons -- only functionally relevant on mobile
+     (hidden entirely on desktop, where the posts list is always shown) */
+  .stoic-archive .era-toggle,
+  .stoic-archive .era-collapse-bottom {
+    display: none;
+  }
+
+  .stoic-archive .posts-card {
+    background: var(--background-alt-color);
+    border-radius: 12px;
+    padding: 0.25rem 1.1rem;
+  }
+
+  /* Collapsed-by-default individual post entries using native
+     <details>/<summary> -- no JS needed, keyboard/screen-reader accessible. */
+  .stoic-archive .post-entry {
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.65rem 0;
+  }
+  .stoic-archive .post-entry:last-child {
+    border-bottom: none;
+  }
+  .stoic-archive .post-entry summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .stoic-archive .post-entry summary::-webkit-details-marker {
+    display: none;
+  }
+  .stoic-archive .post-entry summary::before {
+    content: "+";
+    display: inline-block;
+    width: 1rem;
+    color: var(--brand-color);
+    font-weight: 700;
+  }
+  .stoic-archive .post-entry[open] summary::before {
+    content: "–";
+  }
+  .stoic-archive .post-title-text {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.35;
+  }
+  .stoic-archive .post-date {
+    font-size: 0.72rem;
+    color: var(--text-alt-color);
+    margin-left: 1.4rem;
+  }
+  .stoic-archive .post-summary {
+    font-size: 0.85rem;
+    color: var(--text-alt-color);
+    margin: 0.5rem 0 0.25rem 1.4rem;
+    line-height: 1.5;
+  }
+  .stoic-archive .read-link {
+    display: inline-block;
+    margin: 0.4rem 0 0.25rem 1.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--brand-color);
+    text-decoration: none;
+  }
+  .stoic-archive .read-link:hover {
+    text-decoration: underline;
+  }
+
+  /* ===== Mobile: stacked soft "rectangles", one per era ===== */
+  @media (max-width: 900px) {
+    .stoic-archive .eras-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .stoic-archive .era-block {
+      background: var(--background-alt-color);
+      border-radius: 14px;
+      padding: 1.25rem 1.35rem;
+    }
+    /* Description stays visible in the collapsed state -- only the
+       detailed posts list is hidden until expanded. */
+    .stoic-archive .posts-card {
+      display: none;
+      margin-top: 0.75rem;
+      background: transparent;
+      padding: 0;
+    }
+    .stoic-archive .era-block.expanded .posts-card {
+      display: block;
+    }
+    .stoic-archive .era-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-color);
+      cursor: pointer;
+    }
+    /* Bottom "Collapse" button -- lives inside .posts-card, so it's only
+       ever visible when that card is expanded. Lets the user collapse
+       without scrolling back up past a long (e.g. 21-post) list. */
+    .stoic-archive .era-block.expanded .era-collapse-bottom {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: none;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 0.45rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-color);
+      cursor: pointer;
+      margin-top: 0.9rem;
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .stoic-archive .archive-header h1 { font-size: 1.85rem; }
+  }
+</style>
+
+<div class="stoic-archive">
+
+  <div class="archive-header">
+    <h1>The Stoic Cycle</h1>
+    <p class="tagline">The processing mind of a young, studying Stoic.</p>
+    <div class="archive-note">
+      <strong>About this archive.</strong> Between 2018 and 2023, I kept a personal blog called
+      <em>The Stoic Cycle</em> — a place to think out loud about Stoicism, ethics, and (eventually)
+      the philosophy of mind and AI, mostly as an undergraduate finding my footing. It started as daily
+      reflections and grew, over time, into something closer to the research interests I now pursue
+      professionally. The original site is no longer live, so I've archived all 37 posts here, unedited,
+      exactly as they were first written.
+    </div>
+  </div>
+
+  <div class="eras-grid">
+
+    <div class="era-block" data-era-index="0">
+      <div class="era-range">2018 – 2019</div>
+      <h2>Early Reflections: Daily Stoic Practice</h2>
+      <p class="era-desc">Working through small daily choices, honesty, and the discipline of separating
+      what's in our control from what isn't, while first studying Seneca, Marcus Aurelius, and Epictetus.</p>
+      <button type="button" class="era-toggle" aria-expanded="false">
+        <span class="era-toggle-icon">+</span><span class="era-toggle-label">View 21 posts</span>
+      </button>
+      <div class="posts-card">
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">I Moved My Nightstand.</span></span>
+            <span class="post-date">Dec 31, 2018</span>
+          </summary>
+          <div class="post-summary">A small act of procrastination becomes a lens for examining why we choose comfort over responsibility.</div>
+          <a class="read-link" href="/the-stoic-cycle/i-moved-my-nightstand/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">An Exercise In Spontaneity</span></span>
+            <span class="post-date">Jan 2, 2019</span>
+          </summary>
+          <div class="post-summary">The first of an ongoing series: opening Seneca and Marcus Aurelius at random to write on whatever passage appears.</div>
+          <a class="read-link" href="/the-stoic-cycle/an-exercise-in-spontaneity/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Core Values</span></span>
+            <span class="post-date">Jan 5, 2019</span>
+          </summary>
+          <div class="post-summary">An early attempt to define a personal set of core values and hold them up against daily decisions.</div>
+          <a class="read-link" href="/the-stoic-cycle/core-values/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">"Good" Conversation</span></span>
+            <span class="post-date">Jan 11, 2019</span>
+          </summary>
+          <div class="post-summary">What makes a conversation feel meaningful, and why we crave more of that feeling than we usually get.</div>
+          <a class="read-link" href="/the-stoic-cycle/good-conversation/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Honesty As My "Best" Policy</span></span>
+            <span class="post-date">Jan 16, 2019</span>
+          </summary>
+          <div class="post-summary">Reflecting on Marcus Aurelius's standard for honesty, and how uncomfortably it sits within modern social life.</div>
+          <a class="read-link" href="/the-stoic-cycle/honesty-as-my-best-policy/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Choices</span></span>
+            <span class="post-date">Jan 21, 2019</span>
+          </summary>
+          <div class="post-summary">Using Epictetus's dichotomy of control to separate what is truly up to us from what is not.</div>
+          <a class="read-link" href="/the-stoic-cycle/choices/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">On The Value Of A Mistake</span></span>
+            <span class="post-date">Mar 7, 2019</span>
+          </summary>
+          <div class="post-summary">A frustrating afternoon becomes an argument for treating mistakes as material for growth rather than shame.</div>
+          <a class="read-link" href="/the-stoic-cycle/on-the-value-of-a-mistake/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Making Use Of Our Studies</span></span>
+            <span class="post-date">Mar 7, 2019</span>
+          </summary>
+          <div class="post-summary">Turning months of independent Stoic reading into something more deliberately applied to daily life.</div>
+          <a class="read-link" href="/the-stoic-cycle/making-use-of-our-studies/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Questions Are So Simple, Yet So Complex</span></span>
+            <span class="post-date">Mar 13, 2019</span>
+          </summary>
+          <div class="post-summary">Working through simple-sounding questions about enjoyment, contentment, and how we spend our time.</div>
+          <a class="read-link" href="/the-stoic-cycle/questions-are-so-simple-yet-so-complex/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">An Exercise In Spontaneity: Two</span></span>
+            <span class="post-date">Mar 13, 2019</span>
+          </summary>
+          <div class="post-summary">A second round of the random-passage writing exercise, this time with Epictetus's Discourses.</div>
+          <a class="read-link" href="/the-stoic-cycle/an-exercise-in-spontaneity-two/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Unnecessarily Altruistic?</span></span>
+            <span class="post-date">Mar 14, 2019</span>
+          </summary>
+          <div class="post-summary">Questioning whether a focus on self-development has come at the cost of considering others.</div>
+          <a class="read-link" href="/the-stoic-cycle/unnecessarily-altruistic/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Taoist State Of Mind</span></span>
+            <span class="post-date">Mar 14, 2019</span>
+          </summary>
+          <div class="post-summary">Reading Lao Tzu's Tao Te Ching alongside Stoic ideas about restraint, stillness, and knowing without striving.</div>
+          <a class="read-link" href="/the-stoic-cycle/taoist-state-of-mind/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">The Body May Be At Rest, But Is The Mind?</span></span>
+            <span class="post-date">Mar 20, 2019</span>
+          </summary>
+          <div class="post-summary">On insomnia, restlessness, and Seneca's observation that a still body doesn't guarantee a still mind.</div>
+          <a class="read-link" href="/the-stoic-cycle/the-body-may-be-at-rest-but-is-the-mind/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Ambivalence In Decision-Making</span></span>
+            <span class="post-date">Mar 20, 2019</span>
+          </summary>
+          <div class="post-summary">Why some everyday decisions feel disproportionately hard, and what that says about how we weigh values.</div>
+          <a class="read-link" href="/the-stoic-cycle/ambivalence-in-decision-making/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Avoidance, or Control?</span></span>
+            <span class="post-date">Apr 11, 2019</span>
+          </summary>
+          <div class="post-summary">Distinguishing genuine Stoic control from the avoidance and excuse-making it's sometimes mistaken for.</div>
+          <a class="read-link" href="/the-stoic-cycle/avoidance-or-control/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">On Mindset</span></span>
+            <span class="post-date">May 22, 2019</span>
+          </summary>
+          <div class="post-summary">How a single mindset can color an entire day, and what it takes to deliberately shift it.</div>
+          <a class="read-link" href="/the-stoic-cycle/on-mindset/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">"Does anything really matter?" An Ethical Assignment</span></span>
+            <span class="post-date">Aug 2, 2019</span>
+          </summary>
+          <div class="post-summary">A university essay for an Ethics in Science & Technology course, tackling nihilism head-on.</div>
+          <a class="read-link" href="/the-stoic-cycle/does-anything-really-matter-an-ethical-assignment/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Doctrine in Practice</span></span>
+            <span class="post-date">Sep 19, 2019</span>
+          </summary>
+          <div class="post-summary">Admitting the gap between preaching Stoic and existential ideas and actually living them under pressure.</div>
+          <a class="read-link" href="/the-stoic-cycle/doctrine-in-practice/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Introduction to the Inevitability of Discomfort in Decision-Making</span></span>
+            <span class="post-date">Sep 30, 2019</span>
+          </summary>
+          <div class="post-summary">Introducing the idea that the most beneficial choices are often the most uncomfortable ones in the moment.</div>
+          <a class="read-link" href="/the-stoic-cycle/introduction-to-the-inevitability-of-discomfort-in-decision-making/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Dipping My Toes In The Epistemological Waters</span></span>
+            <span class="post-date">Oct 16, 2019</span>
+          </summary>
+          <div class="post-summary">A first foray into epistemology, shared as a course paper wrestling with what we can really claim to know.</div>
+          <a class="read-link" href="/the-stoic-cycle/dipping-my-toes-in-the-epistemological-waters/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Regulating Reflection</span></span>
+            <span class="post-date">Nov 4, 2019</span>
+          </summary>
+          <div class="post-summary">On the difference between reflection that clarifies and reflection that just spirals.</div>
+          <a class="read-link" href="/the-stoic-cycle/regulating-reflection/">Read this post &rarr;</a>
+        </details>
+        <button type="button" class="era-collapse-bottom">
+          <span class="era-toggle-icon">&ndash;</span><span>Collapse</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="era-block" data-era-index="1">
+      <div class="era-range">2020</div>
+      <h2>Moral Cognition &amp; Enhancement</h2>
+      <p class="era-desc">A shift toward more formal philosophical writing — course papers and independent
+      essays on moral cognition, biomedical moral enhancement, and consciousness.</p>
+      <button type="button" class="era-toggle" aria-expanded="false">
+        <span class="era-toggle-icon">+</span><span class="era-toggle-label">View 11 posts</span>
+      </button>
+      <div class="posts-card">
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Contemporary Constraints On Virtuous Living</span></span>
+            <span class="post-date">Jan 17, 2020</span>
+          </summary>
+          <div class="post-summary">Arguing that modern life is structurally harder on virtuous living than we tend to admit.</div>
+          <a class="read-link" href="/the-stoic-cycle/contemporary-constraints-on-virtuous-living/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Lacking Consideration of the Practical</span></span>
+            <span class="post-date">May 2, 2020</span>
+          </summary>
+          <div class="post-summary">From childhood astronaut dreams to a growing pile of knowledge, questioning whether learning for its own sake is enough.</div>
+          <a class="read-link" href="/the-stoic-cycle/lacking-consideration-of-the-practical/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Would Moral Enhancement Detract from Agency?</span></span>
+            <span class="post-date">May 11, 2020</span>
+          </summary>
+          <div class="post-summary">Responding to Thomas Douglas's paper on moral enhancement and whether it threatens human agency.</div>
+          <a class="read-link" href="/the-stoic-cycle/would-moral-enhancement-detract-from-agency/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Biomedical Moral Enhancement's Effect on Human Agency</span></span>
+            <span class="post-date">May 12, 2020</span>
+          </summary>
+          <div class="post-summary">A deeper follow-up look at how biomedical moral enhancement might specifically affect individual agency.</div>
+          <a class="read-link" href="/the-stoic-cycle/biomedical-moral-enhancements-effect-on-human-agency/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Why Should We Care About Morality?</span></span>
+            <span class="post-date">May 16, 2020</span>
+          </summary>
+          <div class="post-summary">Taking seriously the case that morality is disadvantageous, before making the case for why it still matters.</div>
+          <a class="read-link" href="/the-stoic-cycle/why-should-we-care-about-morality/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Why Should We Be Interested In Moral Cognition?</span></span>
+            <span class="post-date">May 16, 2020</span>
+          </summary>
+          <div class="post-summary">An introduction to Moral Cognition as a field, and why the brain's role in moral judgment matters.</div>
+          <a class="read-link" href="/the-stoic-cycle/why-should-we-be-interested-in-moral-cognition/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">How Do I View Morality?</span></span>
+            <span class="post-date">May 16, 2020</span>
+          </summary>
+          <div class="post-summary">After many posts leaning on Stoicism, Existentialism, and Virtue Ethics, finally asking what morality means personally.</div>
+          <a class="read-link" href="/the-stoic-cycle/how-do-i-view-morality/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Intent, Expectation, Results, and the Global Context of Biomedical Enhancement</span></span>
+            <span class="post-date">Aug 16, 2020</span>
+          </summary>
+          <div class="post-summary">Examining biomedical enhancement through intent, expectation, and outcome, and its uneven global implications.</div>
+          <a class="read-link" href="/the-stoic-cycle/intent-expectation-results-and-the-global-context-of-biomedical-enhancement/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Ethical Indecisiveness</span></span>
+            <span class="post-date">Aug 31, 2020</span>
+          </summary>
+          <div class="post-summary">On the particular irony of studying ethics and still struggling to decide what's right in the moment.</div>
+          <a class="read-link" href="/the-stoic-cycle/ethical-indecisiveness/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Contentedness & Direction</span></span>
+            <span class="post-date">Aug 31, 2020</span>
+          </summary>
+          <div class="post-summary">Untangling contentedness from direction, and asking whether we need both to feel like we're living well.</div>
+          <a class="read-link" href="/the-stoic-cycle/contentedness-direction/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Can Neurobiology Teach Us Anything about Consciousness?</span></span>
+            <span class="post-date">Sep 1, 2020</span>
+          </summary>
+          <div class="post-summary">A response to Patricia Churchland's work, asking what neuroscience can and can't tell us about consciousness.</div>
+          <a class="read-link" href="/the-stoic-cycle/can-neurobiology-teach-us-anything-about-consciousness/">Read this post &rarr;</a>
+        </details>
+        <button type="button" class="era-collapse-bottom">
+          <span class="era-toggle-icon">&ndash;</span><span>Collapse</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="era-block" data-era-index="2">
+      <div class="era-range">2022 – 2023</div>
+      <h2>Return &amp; AI Ethics</h2>
+      <p class="era-desc">A return to the blog after a few years away, turning philosophical attention
+      toward artificial intelligence — AI-generated art, extended cognition, and an interview with
+      ChatGPT about its own ethics.</p>
+      <button type="button" class="era-toggle" aria-expanded="false">
+        <span class="era-toggle-icon">+</span><span class="era-toggle-label">View 5 posts</span>
+      </button>
+      <div class="posts-card">
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">An Update Amidst the Fog</span></span>
+            <span class="post-date">Jul 17, 2022</span>
+          </summary>
+          <div class="post-summary">Returning to the blog after years away, framed through Camus's Myth of Sisyphus and the absurd.</div>
+          <a class="read-link" href="/the-stoic-cycle/an-update-amidst-the-fog/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">On the Rise and Ethics of AI-Generated Art</span></span>
+            <span class="post-date">Dec 18, 2022</span>
+          </summary>
+          <div class="post-summary">Grappling with the ethical mess created by the sudden explosion of AI-generated art and imagery.</div>
+          <a class="read-link" href="/the-stoic-cycle/on-the-rise-and-ethics-of-ai-generated-art/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Sense of Self, AI Technology, and 4E Cognition</span></span>
+            <span class="post-date">Jan 21, 2023</span>
+          </summary>
+          <div class="post-summary">Using 4E cognition to ask whether the technology we rely on can become part of our sense of self.</div>
+          <a class="read-link" href="/the-stoic-cycle/sense-of-self-ai-technology-and-4e-cognition/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">An Interview with Chat GPT on AI Ethics</span></span>
+            <span class="post-date">Jan 29, 2023</span>
+          </summary>
+          <div class="post-summary">An early, curious experiment: interviewing ChatGPT directly about its own ethics.</div>
+          <a class="read-link" href="/the-stoic-cycle/an-interview-with-chat-gpt-on-ai-ethics/">Read this post &rarr;</a>
+        </details>
+        <details class="post-entry">
+          <summary>
+            <span class="post-title-row"><span class="post-title-text">Existential (Dis)Comfort</span></span>
+            <span class="post-date">Jun 30, 2023</span>
+          </summary>
+          <div class="post-summary">Making the case that being at peace existentially means accepting discomfort, not escaping it.</div>
+          <a class="read-link" href="/the-stoic-cycle/existential-discomfort/">Read this post &rarr;</a>
+        </details>
+        <button type="button" class="era-collapse-bottom">
+          <span class="era-toggle-icon">&ndash;</span><span>Collapse</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+(function() {
+  function setExpanded(block, expanded) {
+    block.classList.toggle('expanded', expanded);
+    var topBtn = block.querySelector('.era-toggle');
+    if (topBtn) {
+      topBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      var icon = topBtn.querySelector('.era-toggle-icon');
+      if (icon) icon.textContent = expanded ? '\u2013' : '+';
+    }
+  }
+
+  document.querySelectorAll('.stoic-archive .era-toggle').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var block = btn.closest('.era-block');
+      setExpanded(block, !block.classList.contains('expanded'));
+    });
+  });
+
+  document.querySelectorAll('.stoic-archive .era-collapse-bottom').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var block = btn.closest('.era-block');
+      setExpanded(block, false);
+      block.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+})();
+</script>

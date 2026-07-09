@@ -18,6 +18,8 @@ menu__settings:
         title: "Active Projects"
       - url: "/Past-Projects/"
         title: "Past Projects"
+    - title: "The Stoic Cycle"
+      url: "/the-stoic-cycle/"
     - #title: "Contact"
       #url: "/contact/"
     - #title: "Other"
