@@ -30,7 +30,7 @@ Once I got running from the start, the swim became an insane, yet exciting exper
 
 *26:43 – 1:47min/100m*
 
-<iframe width="315" height="560" src="https://youtube.com/embed/oTmZ1EhKNVw" frameborder="0" allowfullscreen></iframe>
+<iframe width="315" height="560" src="https://youtube.com/embed/oTmZ1EhKNVw" title="Swim leg video" frameborder="0" allowfullscreen></iframe>
 
 <br><strong>T1</strong>
 
@@ -48,7 +48,7 @@ When I looked at the bike course I thought “this is the best course I could ev
 
 *1:33:04*
 
-<iframe width="315" height="560" src="https://youtube.com/embed/kZeF2iA8q34" frameborder="0" allowfullscreen></iframe>
+<iframe width="315" height="560" src="https://youtube.com/embed/kZeF2iA8q34" title="Bike leg video" frameborder="0" allowfullscreen></iframe>
 
 <br><strong>T2</strong>
 
@@ -64,7 +64,7 @@ By mile 5, the person who had started next to me on the swim caught up and told 
 
 *55:54 – 09:01min/mile* 
 
-<iframe width="315" height="560" src="https://youtube.com/embed/FHjWojbzdKM" frameborder="0" allowfullscreen></iframe>
+<iframe width="315" height="560" src="https://youtube.com/embed/FHjWojbzdKM" title="Run leg video" frameborder="0" allowfullscreen></iframe>
 
 <br><strong>Conclusion</strong>
 

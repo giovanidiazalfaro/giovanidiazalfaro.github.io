@@ -23,23 +23,39 @@ document.addEventListener("DOMContentLoaded", function() {
     menu();
   });
 
-  searchOpenIcon.addEventListener("click", () => {
-    searchOpen();
-  });
+  // Search is optional (removed from the header in Oct 2026). Only wire it up if present.
+  if (searchOpenIcon && search) {
+    searchOpenIcon.addEventListener("click", () => {
+      searchOpen();
+    });
+  }
 
-  searchCloseIcon.addEventListener("click", () => {
-    searchClose();
-  });
+  if (searchCloseIcon) {
+    searchCloseIcon.addEventListener("click", () => {
+      searchClose();
+    });
+  }
 
-  searchOverlay.addEventListener("click", () => {
-    searchClose();
-  });
+  if (searchOverlay) {
+    searchOverlay.addEventListener("click", () => {
+      searchClose();
+    });
+  }
 
   // Menu
   function menu() {
     menuToggle.classList.toggle("is-open");
     menuList.classList.toggle("is-visible");
+    menuToggle.setAttribute("aria-expanded", menuList.classList.contains("is-visible") ? "true" : "false");
   }
+
+  // Close the phone menu with Escape and return focus to the menu button
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && menuList.classList.contains("is-visible")) {
+      menu();
+      menuToggle.focus();
+    }
+  });
 
   // Search
   function searchOpen() {
@@ -54,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function searchClose() {
+    if (!search) return;
     search.classList.remove("is-visible");
     body.classList.remove("search-is-visible");
     globalWrap.classList.remove("is-active");
@@ -88,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // =====================
   // Simple Jekyll Search
   // =====================
-  SimpleJekyllSearch({
+  if (document.getElementById("js-search-input")) SimpleJekyllSearch({
     searchInput: document.getElementById("js-search-input"),
     resultsContainer: document.getElementById("js-results-container"),
     json: "/search.json",

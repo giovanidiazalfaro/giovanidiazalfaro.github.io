@@ -4,6 +4,7 @@
 {% include head.html %}
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   {% if site.data.settings.google-analytics %}
     {% include google-analytics.html %}
   {% endif %}
@@ -14,12 +15,12 @@
     {% include header.html %}
 
     <!-- begin content -->
-    <main class="content" aria-label="Content">
+    <main class="content" id="main-content" tabindex="-1" aria-label="Content">
       {{ content }}
     </main>
     <!-- end content -->
 
-    <div class="top" title="Top"><i class="fa-solid fa-arrow-up-long"></i></div>
+    <button type="button" class="top" aria-label="Back to top" title="Back to top"><i class="fa-solid fa-arrow-up-long" aria-hidden="true"></i></button>
 
     {% include footer.html %}
   </div>

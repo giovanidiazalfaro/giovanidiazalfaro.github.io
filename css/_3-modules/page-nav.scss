@@ -1,0 +1,147 @@
+/* =========================
+"On this page" bar (Oct 2026)
+Phones and tablets only. Desktop pages are short enough without it.
+======================= */
+
+.pagenav {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .pagenav:not([hidden]) {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--background-alt-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 6px 18px -12px rgba(0, 0, 0, .35);
+  }
+
+  .pagenav__bar {
+    padding: 0 16px;
+  }
+
+  .pagenav__toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text-color);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .pagenav__kicker {
+    flex: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-alt-color);
+  }
+
+  .pagenav__current {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--heading-font-color);
+  }
+
+  .pagenav__chev {
+    flex: none;
+    font-size: 13px;
+    transition: transform .2s ease;
+  }
+
+  .pagenav.is-open .pagenav__chev {
+    transform: rotate(180deg);
+  }
+
+  .pagenav__toggle:focus-visible,
+  .pagenav__list a:focus-visible {
+    outline: 2px solid var(--brand-color);
+    outline-offset: 2px;
+  }
+
+  .pagenav__progress {
+    height: 3px;
+    background: var(--background-alt-color-2);
+  }
+
+  .pagenav__progress span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: var(--brand-color);
+  }
+
+  .pagenav__list {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0 12px;
+    max-height: 70vh;
+    overflow-y: auto;
+    background: var(--background-alt-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .pagenav__list[hidden] {
+    display: none;
+  }
+
+  .pagenav__item {
+    margin: 0;
+  }
+
+  .pagenav__item a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 16px;
+    color: var(--text-color);
+    font-size: 15px;
+    text-decoration: none;
+  }
+
+  .pagenav__item--h3 a {
+    padding-left: 32px;
+    font-size: 14px;
+    color: var(--text-alt-color);
+  }
+
+  .pagenav__item--top a {
+    font-size: 14px;
+    color: var(--text-alt-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 4px;
+  }
+
+  .pagenav__item a[aria-current="location"] {
+    font-weight: 700;
+    color: var(--heading-font-color);
+    box-shadow: inset 3px 0 0 var(--brand-color);
+  }
+
+  /* Leave room for the bar when jumping to a heading */
+  .page__content h2[id],
+  .page__content h3[id] {
+    scroll-margin-top: 72px;
+  }
+}
+
+@media (max-width: 900px) and (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

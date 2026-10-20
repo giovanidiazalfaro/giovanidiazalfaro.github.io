@@ -25,7 +25,7 @@
   transition: color .25s ease;
 
   &:hover {
-    color: var(--brand-color);
+    color: var(--brand-text-color);
   }
 }
 
@@ -280,7 +280,7 @@
     transition: color .25s ease;
 
     &:hover {
-      color: var(--brand-color);
+      color: var(--brand-text-color);
     }
   }
 
@@ -307,9 +307,9 @@
 
   &:hover {
 
-    div,
-    div::after,
-    div::before {
+    .hamburger__bars,
+    .hamburger__bars::after,
+    .hamburger__bars::before {
       background-color: var(--brand-color);
     }
   }
@@ -320,9 +320,9 @@
   }
 }
 
-.hamburger div,
-.hamburger div::after,
-.hamburger div::before {
+.hamburger .hamburger__bars,
+.hamburger .hamburger__bars::after,
+.hamburger .hamburger__bars::before {
   width: 24px;
   height: 3px;
   border-radius: 10px;
@@ -330,29 +330,29 @@
   background-color: var(--heading-font-color);
 }
 
-.hamburger div::before,
-.hamburger div::after {
+.hamburger .hamburger__bars::before,
+.hamburger .hamburger__bars::after {
   content: "";
   position: absolute;
 }
 
-.hamburger div::before {
+.hamburger .hamburger__bars::before {
   transform: translateY(-200%);
 }
 
-.hamburger div::after {
+.hamburger .hamburger__bars::after {
   transform: translateY(200%);
 }
 
-.hamburger.is-open div {
+.hamburger.is-open .hamburger__bars {
   background: transparent;
 }
 
-.hamburger.is-open div::before {
+.hamburger.is-open .hamburger__bars::before {
   transform: rotate(45deg);
 }
 
-.hamburger.is-open div::after {
+.hamburger.is-open .hamburger__bars::after {
   transform: rotate(-45deg);
 }
 
@@ -375,7 +375,7 @@
   color: var(--heading-font-color);
 
   &:hover {
-    color: var(--brand-color);
+    color: var(--brand-text-color);
   }
 
   i {

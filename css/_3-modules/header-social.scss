@@ -1,0 +1,275 @@
+/* =========================
+Header resume and profile links (Oct 2026)
+Sit before the theme toggle, top right. On phones they appear
+inside the green menu, so they switch to white there.
+======================= */
+
+.header-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 16px 0 0;
+  padding: 0;
+}
+
+.header-social__item {
+  display: flex;
+  align-items: center;
+}
+
+.header-social__link {
+  display: inline-flex;
+  font-size: 17px;
+  color: var(--link-color);
+  transition: color .25s ease;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--brand-text-color);
+  }
+}
+
+.header-social__resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--link-color);
+  transition: color .25s ease, border-color .25s ease;
+
+  i {
+    font-size: 14px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--brand-text-color);
+    border-color: var(--brand-color);
+  }
+}
+
+:root[dark] .header-social__resume {
+  border-color: var(--background-alt-color-2);
+}
+
+@media (max-width: $desktop) {
+  .header-social {
+    gap: 16px;
+    margin-right: 16px;
+  }
+
+  .header-social__link,
+  .header-social__resume,
+  .header-social__link:hover,
+  .header-social__resume:hover {
+    color: var(--white);
+  }
+
+  .header-social__resume,
+  :root[dark] .header-social__resume {
+    border-color: rgba(255, 255, 255, .5);
+  }
+}
+
+/* Theme toggle and search as real buttons, grouped first */
+.nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-buttons .toggle-theme,
+.nav-buttons .icon__search,
+.icon__search__close {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 4px;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.nav-buttons .toggle-theme {
+  margin-right: 0;
+}
+
+.nav-buttons .toggle-theme:focus-visible,
+.nav-buttons .icon__search:focus-visible,
+.header-social a:focus-visible,
+.icon__search__close:focus-visible {
+  outline: 2px solid var(--brand-color);
+  outline-offset: 2px;
+}
+
+/* Thin vertical line between site tools and outbound links */
+.nav-buttons__divider {
+  display: block;
+  width: 1px;
+  height: 22px;
+  margin: 0 16px;
+  background: var(--text-alt-color);
+  opacity: .45;
+}
+
+.header-social {
+  margin-right: 0;
+}
+
+@media (max-width: $desktop) {
+  .nav-tools .icon__search,
+  .nav-tools .toggle-theme {
+    color: var(--white);
+  }
+
+  .nav-buttons__divider {
+    background: var(--white);
+    opacity: .6;
+  }
+
+  .header-social {
+    margin-right: 0;
+  }
+}
+
+/* Line every header icon up on the same center */
+.nav-buttons .toggle-theme,
+.nav-buttons .icon__search,
+.header-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  line-height: 1;
+}
+
+.nav-buttons .toggle-sun,
+.nav-buttons .toggle-moon {
+  line-height: 1;
+}
+
+.nav-buttons .toggle-moon,
+.dark-mode .nav-buttons .toggle-sun {
+  display: inline-flex;
+}
+
+.nav-buttons .toggle-sun,
+.dark-mode .nav-buttons .toggle-moon {
+  display: none;
+}
+
+.header-social .header-social__item {
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: $desktop) {
+  .main-nav .nav-buttons {
+    margin-top: 20px;
+  }
+}
+
+/* Menu button reset (was a div, now a real button) */
+.hamburger {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  position: relative;
+}
+
+.hamburger .hamburger__bars {
+  display: block;
+  position: relative;
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--brand-color);
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+/* Bigger touch targets in the phone menu, same look */
+@media (max-width: $desktop) {
+  .header-social {
+    gap: 0;
+  }
+
+  .header-social__link,
+  .nav-buttons .toggle-theme {
+    width: 44px;
+    height: 44px;
+  }
+
+  .header-social__resume {
+    position: relative;
+    margin-left: 6px;
+  }
+
+  /* Invisible 44px tap area around the pill, so it keeps its size */
+  .header-social__resume::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    top: 50%;
+    height: 44px;
+    transform: translateY(-50%);
+  }
+
+  .nav-buttons__divider {
+    margin: 0 6px;
+  }
+}
+
+/* Keep sizes the same after fixing heading levels (Oct 2026) */
+h3.single-link__title {
+  font-size: $font-size-h4;
+}
+
+/* Screen-reader-only text */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -60px;
+  z-index: 1000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: var(--button-background-color);
+  color: var(--button-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top .15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: var(--button-color);
+  outline: 2px solid var(--heading-font-color);
+  outline-offset: 2px;
+}
+
+.content:focus {
+  outline: none;
+}

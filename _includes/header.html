@@ -14,11 +14,11 @@
           </a>
         </div>
 
-        <div class="hamburger">
-          <div></div>
-        </div>
+        <button type="button" class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="main-nav">
+          <span class="hamburger__bars" aria-hidden="true"></span>
+        </button>
 
-        <nav class="main-nav">
+        <nav class="main-nav" id="main-nav" aria-label="Main">
           <div class="main-nav__box">
             <ul class="nav__list list-reset">
 
@@ -43,19 +43,16 @@
           </div>
 
           <div class="nav-buttons">
-            {% if site.data.settings.color_scheme == "auto" %}
-            <div class="toggle-theme">
-              <div class="toggle-moon" title="Enable dark mode" aria-hidden="true"><i class="fa-solid fa-moon"></i></div>
-              <div class="toggle-sun" title="Enable light mode" aria-hidden="true"><i class="fa-solid fa-sun"></i></div>
+            <div class="nav-tools">
+              {% unless site.data.settings.color_scheme == "light" or site.data.settings.color_scheme == "dark" %}
+              <button type="button" class="toggle-theme" aria-label="Dark mode" aria-pressed="false" title="Toggle dark mode">
+                <span class="toggle-moon" aria-hidden="true"><i class="fa-solid fa-moon"></i></span>
+                <span class="toggle-sun" aria-hidden="true"><i class="fa-solid fa-sun"></i></span>
+              </button>
+              {% endunless %}
             </div>
-            {% elsif site.data.settings.color_scheme == "light" or site.data.settings.color_scheme == "dark" %}
-            {% else %}
-            <div class="toggle-theme">
-              <div class="toggle-moon" title="Enable dark mode"><i class="fa-solid fa-moon" aria-hidden="true"></i></div>
-              <div class="toggle-sun" title="Enable light mode"><i class="fa-solid fa-sun" aria-hidden="true"></i></div>
-            </div>
-            {% endif %}
-            <i class="nav__icon icon__search fa-solid fa-magnifying-glass"></i>
+            <span class="nav-buttons__divider" aria-hidden="true"></span>
+            {% include header-social.html %}
           </div>
         </nav>
 
@@ -66,4 +63,14 @@
 </header>
 <!-- end header -->
 
-{% include search.html %}
+{% comment %} Search removed Oct 2026. Re-add the include and the header button to restore it. {% endcomment %}
+<script>
+  /* Keep the theme button's pressed state in sync for screen readers */
+  (function () {
+    var t = document.querySelector('.toggle-theme');
+    if (!t) return;
+    function sync() { t.setAttribute('aria-pressed', document.documentElement.hasAttribute('dark') ? 'true' : 'false'); }
+    sync();
+    t.addEventListener('click', function () { setTimeout(sync, 0); });
+  })();
+</script>

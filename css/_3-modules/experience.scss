@@ -1,0 +1,528 @@
+/* =========================
+Experience page and case study pages (Oct 2026)
+Uses only the theme variables from _0-settings/color-scheme.scss,
+so light and dark mode follow the rest of the site.
+======================= */
+
+/* ---- Case study cards on the Experience page ---- */
+.cs-strip {
+  margin-bottom: 3rem;
+}
+
+.cs-strip__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.cs-strip__head h2 {
+  margin: 0;
+}
+
+.cs-strip__intro {
+  width: 100%;
+  margin: 0;
+  color: var(--text-alt-color);
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.cs-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--background-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.25rem 1.35rem;
+}
+
+.cs-card__label,
+.cs-kicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--brand-text-color);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.cs-card__title {
+  font-size: 1.1rem;
+  line-height: 1.35;
+  margin: 0 0 0.5rem;
+}
+
+.cs-card__meta {
+  font-size: 0.85rem;
+  color: var(--text-alt-color);
+  margin: 0 0 0.75rem;
+}
+
+.cs-card__outcome {
+  font-size: 0.92rem;
+  margin: 0 0 1rem;
+}
+
+.page__content .cs-card__link {
+  margin-top: auto;
+  font-weight: 600;
+  color: var(--brand-text-color);
+  text-decoration: none;
+}
+
+.page__content .cs-card__link:hover {
+  text-decoration: underline;
+}
+
+/* Download button, same green as the theme's buttons */
+.page__content .cs-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  background: var(--button-background-color);
+  color: var(--button-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page__content .cs-download:hover {
+  background: var(--button-background-hover);
+  color: var(--button-color);
+  text-decoration: underline;
+}
+
+/* ---- Experience entries ---- */
+.exp-entry {
+  margin-bottom: 2.5rem;
+}
+
+.exp-entry__role {
+  color: var(--text-alt-color);
+  margin-bottom: 0.75rem;
+}
+
+.exp-entry__outcome {
+  font-size: 1.05rem;
+}
+
+.exp-entry img,
+.cs-figure img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+.exp-entry__links a,
+.cs-footer a {
+  font-weight: 600;
+}
+
+.exp-entry__note,
+.cs-footnote {
+  font-size: 0.85rem;
+  color: var(--text-alt-color);
+}
+
+/* Native details/summary, same pattern as the Stoic Cycle archive */
+.page__content details.exp-funding {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--background-alt-color);
+  font-size: 0.85rem;
+}
+
+.page__content details.exp-funding summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-alt-color);
+}
+
+.page__content details.exp-funding[open] summary {
+  margin-bottom: 0.5rem;
+}
+
+.page__content details.exp-funding p {
+  margin-bottom: 0.25rem;
+}
+
+.exp-divider {
+  &::before {
+    content: none !important;
+  }
+  border: 0;
+  height: 1px;
+  background: var(--border-color);
+  margin: 2.5rem 0;
+}
+
+/* ---- Case study pages ---- */
+.cs-header {
+  margin-bottom: 2rem;
+}
+
+.cs-header__project {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.cs-header__meta {
+  color: var(--text-alt-color);
+}
+
+.cs-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.cs-stat {
+  background: var(--background-alt-color);
+  border: 1px solid var(--border-color);
+  border-left: 3px solid var(--brand-color);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+}
+
+.cs-stat__value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--heading-font-color);
+  margin-bottom: 0.35rem;
+}
+
+.cs-stat__label {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-alt-color);
+  line-height: 1.45;
+}
+
+.cs-note {
+  background: var(--background-alt-color);
+  border-left: 3px solid var(--brand-color);
+  border-radius: 8px;
+  padding: 1.1rem 1.35rem;
+  margin-bottom: 2.5rem;
+}
+
+.cs-note p:last-child {
+  margin-bottom: 0;
+}
+
+.cs-figure {
+  margin: 0 0 2.5rem;
+}
+
+.cs-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-alt-color);
+}
+
+/* Method tables: readable in both modes and on phones */
+.cs-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.page__content .cs-table {
+  margin-bottom: 0;
+  color: var(--text-color);
+}
+
+.page__content .cs-table tr {
+  background-color: var(--background-alt-color);
+}
+
+.page__content .cs-table th {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-alt-color);
+  background: var(--background-alt-color-2);
+  border: 1px solid var(--border-color);
+}
+
+.page__content .cs-table td {
+  font-size: 0.95rem;
+  border: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.page__content .cs-table td:first-child {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Orlando Health findings diagram, built in HTML so it stays text */
+.cs-findings {
+  margin-bottom: 2.5rem;
+}
+
+.cs-findings__row {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.cs-findings__row--5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.cs-findings__row--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cs-chip {
+  background: var(--background-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.cs-chip span {
+  display: block;
+  margin-top: 0.3rem;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--text-alt-color);
+}
+
+.cs-chip--why {
+  border-left: 3px solid var(--brand-color);
+}
+
+.cs-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .cs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-findings__row--5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cs-stats,
+  .cs-findings__row--3,
+  .cs-findings__row--5 {
+    grid-template-columns: 1fr;
+  }
+
+  .page__content .cs-table td:first-child {
+    white-space: normal;
+  }
+}
+
+/* ---- Revision 2: clearer sections, quieter PDF link, animation ---- */
+
+/* Case studies sit in their own tinted band */
+.cs-strip {
+  background: var(--background-alt-color-2);
+  border-radius: 16px;
+  padding: 1.75rem 1.75rem 1.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.cs-strip__head {
+  margin-bottom: 1.25rem;
+}
+
+.cs-strip__foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+/* Secondary PDF link: small, light green, not a primary button */
+.page__content .cs-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(38, 108, 28, 0.3);
+  background: rgba(38, 108, 28, 0.08);
+  color: var(--brand-text-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.page__content .cs-pdf-link:hover,
+.page__content .cs-pdf-link:focus-visible {
+  background: rgba(38, 108, 28, 0.16);
+  text-decoration: underline;
+}
+
+:root[dark] .page__content .cs-pdf-link {
+  border-color: rgba(38, 108, 28, 0.7);
+  background: rgba(38, 108, 28, 0.25);
+  color: var(--text-color);
+}
+
+.cs-footer .cs-pdf-link {
+  margin-left: auto;
+}
+
+/* Section headers for Active and Past Projects */
+.exp-section {
+  margin-bottom: 3.5rem;
+}
+
+.exp-section__head {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.exp-section__head::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 56px;
+  height: 2px;
+  background: var(--brand-color);
+}
+
+.exp-section__head h2 {
+  margin: 0;
+}
+
+/* Each project is its own card */
+.exp-entry {
+  background: var(--background-alt-color);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 1.75rem 1.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.exp-entry > h3:first-child {
+  margin-top: 0;
+}
+
+.exp-entry > :last-child {
+  margin-bottom: 0;
+}
+
+:root[dark] .exp-entry {
+  border-color: var(--background-alt-color-2);
+}
+
+/* Lockheed merge animation */
+.cs-anim__frame {
+  position: relative;
+}
+
+.page__content .cs-anim__btn {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-color);
+  background: var(--background-alt-color);
+  color: var(--text-color);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.page__content .cs-anim__btn[hidden] {
+  display: none;
+}
+
+.page__content .cs-anim__btn:focus-visible {
+  outline: 2px solid var(--brand-color);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .cs-strip {
+    padding: 1.25rem 1rem 1rem;
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
+  }
+
+  .exp-entry {
+    padding: 1.25rem 1.1rem 1rem;
+  }
+
+  .cs-strip__foot {
+    justify-content: flex-start;
+  }
+
+  .cs-footer .cs-pdf-link {
+    margin-left: 0;
+  }
+}
+
+.page__content .cs-card__link {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  border-bottom: none;
+  box-shadow: none;
+  background-image: none;
+}
+
+/* "Open full size" link under dense images, phones only */
+.page__content .cs-fullsize {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .page__content .cs-fullsize {
+    display: inline-block;
+    margin-left: 0.25rem;
+    font-weight: 600;
+    color: var(--brand-text-color);
+    white-space: nowrap;
+  }
+}
+
+/* Small numbering label above case study titles */
+.hero__kicker {
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-text-color);
+}

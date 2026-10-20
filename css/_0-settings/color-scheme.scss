@@ -38,6 +38,7 @@
 
 
   --brand-color: #{$brand-color};
+  --brand-text-color: #{$brand-color}; /* green for text, light mode */
   --white: #{$white};
   --light-blue: #{$light-blue};
   --light-gray: #{$light-gray};
@@ -104,6 +105,7 @@
 
 
   --brand-color: #{$brand-color};
+  --brand-text-color: #3aa22a; /* lighter green for text on dark backgrounds, 5.3:1 (Oct 2026) */
   --white: #{$white};
   --light-gray: #{$light-gray};
   --gray: #{$gray};
