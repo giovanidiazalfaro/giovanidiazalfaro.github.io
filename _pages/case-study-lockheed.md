@@ -118,7 +118,7 @@ Three recommendations that turn the framework into testable design questions, an
 </figure>
 
 <figure class="cs-figure">
-  <img src="/images/case-studies/lockheed-study-designs.png" alt="Slide titled From recommendation to study design. Each of the three recommendations is paired with a study, what it measures, the instruments that measure it, and the decision it resolves." loading="lazy" width="2540" height="1167">
+  <img src="/images/case-studies/lockheed-study-designs.png" alt="Slide titled From recommendation to study design. Each of the three recommendations is paired with a study, what it measures, the instruments that measure it, and the decision it resolves." loading="lazy" width="2540" height="1185">
   <figcaption>From recommendation to study design. Each study names what to vary, what to measure, and the instrument that measures it. <a class="cs-fullsize" href="/images/case-studies/lockheed-study-designs.png" target="_blank" rel="noopener">Open full size<span class="sr-only"> image (opens in new tab)</span></a></figcaption>
 </figure>
 
