@@ -100,9 +100,13 @@ permalink: /the-stoic-cycle/
   .stoic-archive .post-entry summary {
     cursor: pointer;
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    row-gap: 0.15rem;
+    align-items: baseline;
+  }
+  .stoic-archive .post-entry summary > * {
+    grid-column: 2;
   }
   .stoic-archive .post-entry summary::-webkit-details-marker {
     display: none;
@@ -126,7 +130,6 @@ permalink: /the-stoic-cycle/
   .stoic-archive .post-date {
     font-size: 0.72rem;
     color: var(--text-alt-color);
-    margin-left: 1.4rem;
   }
   .stoic-archive .post-summary {
     font-size: 0.85rem;

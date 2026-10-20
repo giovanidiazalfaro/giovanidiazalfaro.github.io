@@ -51,22 +51,38 @@ I could have treated workload as one thing to measure and minimize. Instead I ap
   var end = img.getAttribute('data-end');
   var LENGTH = 6200; /* the GIF is 120 frames at 50 ms and plays once */
   var timer;
+  var playing = false;
+  var icon = btn.querySelector('i');
+
+  function setButton(text, iconClass) {
+    label.textContent = text;
+    icon.className = 'fa-solid ' + iconClass;
+    btn.hidden = false;
+  }
+
+  function finish() {
+    clearTimeout(timer);
+    playing = false;
+    img.src = end;
+    setButton('Replay', 'fa-rotate-right');
+  }
 
   function play() {
     clearTimeout(timer);
+    playing = true;
     img.src = gif + '?play=' + Date.now(); /* new URL restarts the GIF */
-    btn.hidden = true;
-    timer = setTimeout(function () { label.textContent = 'Replay'; btn.hidden = false; }, LENGTH);
+    /* A Skip control while it plays, so the motion can always be stopped */
+    setButton('Skip', 'fa-forward');
+    timer = setTimeout(finish, LENGTH);
   }
 
-  btn.addEventListener('click', play);
+  btn.addEventListener('click', function () { playing ? finish() : play(); });
 
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce || !('IntersectionObserver' in window)) {
     /* No autoplay. Show the end state and let the reader start it. */
     img.src = end;
-    label.textContent = 'Play animation';
-    btn.hidden = false;
+    setButton('Play animation', 'fa-play');
     return;
   }
 

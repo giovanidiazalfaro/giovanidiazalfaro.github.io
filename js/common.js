@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", function() {
     menuToggle.setAttribute("aria-expanded", menuList.classList.contains("is-visible") ? "true" : "false");
   }
 
+  // Close the phone menu when keyboard focus moves outside it
+  document.addEventListener("focusin", function (e) {
+    if (menuList.classList.contains("is-visible") && !menuList.contains(e.target) && !menuToggle.contains(e.target)) {
+      menu();
+    }
+  });
+
   // Close the phone menu with Escape and return focus to the menu button
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && menuList.classList.contains("is-visible")) {

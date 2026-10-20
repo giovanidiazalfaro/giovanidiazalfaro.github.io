@@ -273,3 +273,13 @@ h3.single-link__title {
 .content:focus {
   outline: none;
 }
+
+/* Focus rings inside the green phone menu must be white to be visible */
+@media (max-width: $desktop) {
+  .main-nav .nav-buttons .toggle-theme:focus-visible,
+  .main-nav .header-social a:focus-visible,
+  .main-nav .nav__link:focus-visible {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+  }
+}

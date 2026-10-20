@@ -147,12 +147,23 @@ Spoiler Tagging
 ======================= */
 
 .spoiler {
-  background-color: black;
-  color: black;
+  /* A real button now, so keyboard users can reveal it (Oct 2026) */
+  appearance: none;
+  border: 0;
+  margin: 0;
+  font: inherit;
+  line-height: inherit;
+  background-color: var(--heading-font-color);
+  color: var(--heading-font-color);
   cursor: pointer;
   border-radius: 3px;
   padding: 0 4px;
   transition: all 0.3s ease;
+}
+
+.spoiler:focus-visible {
+  outline: 2px solid var(--brand-color);
+  outline-offset: 2px;
 }
 
 .spoiler.revealed {

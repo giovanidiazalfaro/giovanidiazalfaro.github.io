@@ -114,7 +114,6 @@ page_nav: true
 
 </div>
 
-<!-- DRAFT for Giovani's review: Orlando Health entry. Wording taken from page 3 of GDA 2026 Case Studies.pdf. Not in experience-tab-v2.md. -->
 <div class="exp-entry" markdown="1">
 
 ### Quality Assurance Program and Epic EHR Launch

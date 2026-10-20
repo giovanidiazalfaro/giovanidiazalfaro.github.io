@@ -58,9 +58,9 @@ This transition went pretty well. I racked my bike up, switched shoes, put my ca
 
 <strong>Run</strong>
 
-The run was… interesting? Simple course going down a long, gorgeous residential road. First mile was great. Second mile, my feet started feeling funny, and I think my body was having some trouble with the gels because I<span class="spoiler">passed gas that whole mile</span> (TMI, but the truth). By the third mile, both my feet were completely numb, think “pins and needles. I think I may have needed to try out my elastic laces a bit more and adjust the tightness. Despite that, I kept running. By the fourth mile I had to pee so badly that I ran into a porta potty in a random yard that had construction going on. 
+The run was… interesting? Simple course going down a long, gorgeous residential road. First mile was great. Second mile, my feet started feeling funny, and I think my body was having some trouble with the gels because I <button type="button" class="spoiler" aria-pressed="false" title="Spoiler. Select to reveal.">passed gas that whole mile</button> (TMI, but the truth). By the third mile, both my feet were completely numb, think “pins and needles.” I think I may have needed to try out my elastic laces a bit more and adjust the tightness. Despite that, I kept running. By the fourth mile I had to pee so badly that I ran into a porta potty in a random yard that had construction going on. 
 
-By mile 5, the person who had started next to me on the swim caught up and told me they were so grateful, they had been trying to pace off of me and needed the motivation. Something about starting and finishing the race with this person was so motivating. I said “alright, let’s get it!”. Picked the pace up and just hoped my feet would survive the rest of the run. Ran the last two miles than I had ever run any on my strava recorded history, and finished just short of a cramp in my calf. The run definitely demanded the most of me mentally, but it somehow felt like it was over in the blink of an eye? 
+By mile 5, the person who had started next to me on the swim caught up and told me they were so grateful, they had been trying to pace off of me and needed the motivation. Something about starting and finishing the race with this person was so motivating. I said “alright, let’s get it!”. Picked the pace up and just hoped my feet would survive the rest of the run. Ran the last two miles faster than I had ever run any on my strava recorded history, and finished just short of a cramp in my calf. The run definitely demanded the most of me mentally, but it somehow felt like it was over in the blink of an eye? 
 
 *55:54 – 09:01min/mile* 
 
@@ -89,6 +89,7 @@ The training, the racing, and the day-to-day experience of training for somethin
 document.querySelectorAll('.spoiler').forEach(function(el) {
   el.addEventListener('click', function() {
     this.classList.toggle('revealed');
+    this.setAttribute('aria-pressed', this.classList.contains('revealed') ? 'true' : 'false');
   });
 });
 </script>
